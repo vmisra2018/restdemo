@@ -56,15 +56,26 @@ public class EmployeeController {
 	}
 
 	@PutMapping("/employees/{id}")
-	public ResponseEntity<Employee> updateEmployee1(@PathVariable(value = "id") Long employeeId,
+	public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long employeeId,
 			@Valid @RequestBody Employee employeeDetails, HttpServletRequest request, HttpServletResponse response)
 			throws ResourceNotFoundException {
 		Employee employee = this.employeeService.getEmployee(employeeId);
 		checkResourceFound(employee);
+		/* IMPORTANT - To prevent the overriding of the existing value of the variables in the database, 
+         * if that variable is not coming in the @RequestBody annotation object. */    
+        if(employeeDetails.getFirstName() == null || employeeDetails.getFirstName().isEmpty())
+            employeeDetails.setFirstName(employee.getFirstName());
+        if(employeeDetails.getLastName() == null || employeeDetails.getLastName().isEmpty())
+      
+        employeeDetails.setId(employee.getId());
 		employee = this.employeeService.getEmployee(employeeId);
+		
 		employee.setEmailId(employeeDetails.getEmailId());
 		employee.setLastName(employeeDetails.getLastName());
 		employee.setFirstName(employeeDetails.getFirstName());
+		if(employeeDetails.getDepartment()!=null){
+		employee.setDepartment(employeeDetails.getDepartment());
+		}
 		Employee updatedEmployee = this.employeeService.updateEmployee(employee);
 		return ResponseEntity.ok(updatedEmployee);
 	}

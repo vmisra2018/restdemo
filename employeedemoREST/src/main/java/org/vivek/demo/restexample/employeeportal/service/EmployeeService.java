@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.vivek.demo.restexample.employeeportal.exception.ResourceNotFoundException;
+import org.vivek.demo.restexample.employeeportal.model.Department;
 import org.vivek.demo.restexample.employeeportal.model.Employee;
+import org.vivek.demo.restexample.employeeportal.repository.DepartmentRepository;
 import org.vivek.demo.restexample.employeeportal.repository.EmployeeRepository;
 
 
@@ -13,11 +15,14 @@ import org.vivek.demo.restexample.employeeportal.repository.EmployeeRepository;
 public class EmployeeService {
 	@Autowired
 	private EmployeeRepository employeeRepository;
-	
+	@Autowired
+	private DepartmentRepository departmenrRepository;
 	public EmployeeService() {
     }
 
     public Employee createEmployee(Employee employee) {
+    	Department department = employee.getDepartment();
+    	departmenrRepository.save(department );
         return employeeRepository.save(employee);
     }
 
