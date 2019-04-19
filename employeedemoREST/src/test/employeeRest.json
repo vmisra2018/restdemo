@@ -1,0 +1,225 @@
+{
+  "front-version": "2.19.1",
+  "version": 3,
+  "nodes": [
+    {
+      "type": "Project",
+      "id": "4c86fd06-39c0-4edb-abf4-6f654ca4ca46",
+      "lastModified": "2019-04-19T09:15:06.855-07:00",
+      "name": "emploeeportal"
+    },
+    {
+      "type": "Scenario",
+      "id": "29c075f7-b472-43fa-8876-cbadb10b1367",
+      "lastModified": "2019-04-19T09:22:55.346-07:00",
+      "name": "crud",
+      "requestOrder": [
+        "createEmployee",
+        "getAllEmployees",
+        "updateEmployee",
+        "deleteEmployee",
+        "update"
+      ],
+      "parentId": "4c86fd06-39c0-4edb-abf4-6f654ca4ca46"
+    },
+    {
+      "uriEditor": true,
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "{\n \n\"firstName\" : \"C77\",\n  \"lastName\" : \"B77\",\n\"emailId\" : \"C7b7@tst.com\",\n  \"department\" : \"abc\"\n\n}\n"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:8090",
+        "path": "/api/v1/employees"
+      },
+      "id": "76129eac-24f3-4826-b09e-89b5beabf925",
+      "lastModified": "2019-04-19T08:20:54.230-07:00",
+      "name": "createEmployee",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {},
+      "parentId": "29c075f7-b472-43fa-8876-cbadb10b1367"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:8090",
+        "path": "/api/v1/employees"
+      },
+      "id": "beb3c60d-5cb2-4556-823b-76ac2a1b2c93",
+      "lastModified": "2019-04-18T22:51:07.066-07:00",
+      "name": "getAllEmployees",
+      "headers": [],
+      "metaInfo": {},
+      "parentId": "29c075f7-b472-43fa-8876-cbadb10b1367"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.4",
+        "name": "PUT"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "{\n\n\"firstName\": \"C77\",\n\"lastName\": \"B772\",\n\"emailId\": \"C7b7@tst.com\",\n  \"department\" : \"abc\"\n}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:8090",
+        "path": "/api/v1/employees/2"
+      },
+      "id": "ec144368-e935-4365-9358-b23843315d14",
+      "lastModified": "2019-04-19T09:15:06.855-07:00",
+      "name": "updateEmployee",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {},
+      "parentId": "29c075f7-b472-43fa-8876-cbadb10b1367"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.5",
+        "name": "DELETE"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:8090",
+        "path": "/api/v1/employees/2"
+      },
+      "id": "b209f1fb-88d3-487a-90d8-1faa585a4932",
+      "lastModified": "2019-04-19T01:59:39.044-07:00",
+      "name": "deleteEmployee",
+      "headers": [],
+      "metaInfo": {},
+      "parentId": "29c075f7-b472-43fa-8876-cbadb10b1367"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.4",
+        "name": "PUT"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:8090",
+        "path": "/api/v1/employees"
+      },
+      "id": "aada8ec8-0516-4d77-b86b-24b37ed740b1",
+      "lastModified": "2019-04-19T01:16:34.388-07:00",
+      "name": "update",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {},
+      "parentId": "29c075f7-b472-43fa-8876-cbadb10b1367"
+    }
+  ]
+}
